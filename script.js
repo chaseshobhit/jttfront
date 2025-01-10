@@ -40,7 +40,7 @@ function validateAndRedirect() {
     return;
   }
 
-  fetch("https://jttback.netlify.app", {
+  fetch("https://jttbackend.vercel.app/", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function validateAndRedirect() {
     });
 
   // Make a POST request to the backend server
-  fetch("https://jttback.netlify.app/submit", {
+  fetch("https://jttbackend.vercel.app/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
