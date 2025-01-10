@@ -40,7 +40,7 @@ function validateAndRedirect() {
     return;
   }
 
-  fetch("https://jttbackend.vercel.app/", {
+  fetch("https://jttbackend.onrender.com", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ function validateAndRedirect() {
     });
 
   // Make a POST request to the backend server
-  fetch("https://jttbackend.vercel.app/submit", {
+  fetch("https://jttbackend.onrender.com/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
