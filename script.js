@@ -22,7 +22,6 @@ $(function () {
 });
 
 function validateAndRedirect() {
-  console.log("Run");
   var phone = document.getElementById("Phone").value.trim();
   var name = document.getElementById("Your").value.trim();
   var phoneError = document.getElementById("phone-error");
@@ -40,37 +39,23 @@ function validateAndRedirect() {
     return;
   }
 
-  fetch("https://jttbackend.onrender.com", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok " + response.statusText);
-      }
-      return response.text(); // Convert response stream to text
-    })
-    .then((data) => {
-      console.log("Data received:", data);
-    })
-    .catch((error) => {
-      console.log("there was the problem with the fetch operation:", error);
-    });
-
   // Make a POST request to the backend server
-  fetch("https://jttbackend.onrender.com/submit", {
+  fetch("https://jttbackend.vercel.app/submit", {
     method: "POST",
+    mode: "cors",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ phone: phone, name: name }),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok " + response.statusText);
+      }
+      return response.json();
+    })
     .then((data) => {
       console.log(data);
-      // Redirect to confirmation page
       window.location.href = "confirmation.html";
     })
     .catch((error) => {
