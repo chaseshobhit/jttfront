@@ -41,7 +41,7 @@ function validateAndRedirect() {
   }
 
   // Make a POST request to the backend server
-  fetch("https://jttbackend.vercel.app/submit", {
+  fetch("https://jttfront-gamma.vercel.app//submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
